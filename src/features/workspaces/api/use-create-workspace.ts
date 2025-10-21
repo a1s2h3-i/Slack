@@ -49,7 +49,7 @@ export const useCreateWorkspace=()=>{
             
         }
         finally{
-         setStatus("settled");;
+         setStatus("settled");
             options?.onSettled?.();
 
         }
