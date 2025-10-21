@@ -10,7 +10,7 @@ const WorkSpaceIdPage = () => {
     
     return (<div>
 
-    Data:{JSON.stringify(data)};
+   Workspace id page
     </div> );
 }
  
