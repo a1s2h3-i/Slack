@@ -8,9 +8,13 @@ import { useGetChannels } from "@/features/channels/api/use-get-channel";
 import { WorkspaceSection } from "./workspace-section";
 import { useGetMembers } from "@/features/members/api/use-get-members";
 import { UserItem } from "./user-item";
+import { useCreateChannelModal } from "@/features/channels/use-create-channel-modal";
 
 export const WorkspaceSidebar=()=>{
     const workspaceId=useWorkspaceId();
+
+    const[_open,setOpen]=useCreateChannelModal();
+    
     console.log(workspaceId)
 
     const {data:member,isLoading:memberLoading}=useCurrentMember({workspaceId});
@@ -48,12 +52,13 @@ console.log("memberLoading", memberLoading);
                 <SidebarItem label="Threads" icon={MessageSquareText} id="threads" variant="active"/>
                 <SidebarItem label="Drafts and Sents " icon={SendHorizonal} id="drafts" />
                 </div>
-          <WorkspaceSection label="Channels" hint="New Channel" onNew={()=>{}}>
+
+          <WorkspaceSection label="Channels" hint="New Channel" onNew={member.role==="admin"?()=>setOpen(true):undefined}>
                 {channels?.map((item)=>(
 <SidebarItem key={item._id} icon={HashIcon} label={item.name} id={item._id}/>
                 ))}
                 </WorkspaceSection>
-                 <WorkspaceSection label="Direct Messages" hint="New Direct Message" onNew={()=>{}}>
+                 <WorkspaceSection label="Direct Messages" hint="New Direct Message">
                 
                  {members?.map((item)=>(
                 

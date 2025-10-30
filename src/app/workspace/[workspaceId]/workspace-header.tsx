@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger,DropdownMenuItem, DropdownMenuSeparator } from "@radix-ui/react-dropdown-menu"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger,DropdownMenuItem, DropdownMenuSeparator } from "@/components/ui/dropdown-menu"
 import { Doc } from "../../../../convex/_generated/dataModel"
 import { ChevronDown, ListFilter, SquarePen } from "lucide-react"
 import { Hint } from "@/components/hint"
