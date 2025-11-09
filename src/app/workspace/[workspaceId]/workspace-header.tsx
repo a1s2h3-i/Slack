@@ -19,7 +19,7 @@ export const WorkspaceHeader=({workspace,isAdmin}:WorkspaceHeaderProps)=>{
 
     return(
         <>
-        <InviteModal open={inviteOpen} setOpen={setinviteOpen} name={workspace.name} joinCode={workspace.joinCode}/>
+        <InviteModal open={inviteOpen} setOpen={setinviteOpen} name={workspace.name} joinCode={workspace.joinCode} workspaceId={workspace._id}/>
         <PreferencesModal open={open} setOpen={setOpen} initialValue={workspace.name}/>
 
         <div className="flex items-center justify-between px-4 h-[49px] gap-0.5">

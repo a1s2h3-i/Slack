@@ -22,17 +22,18 @@ interface InviteModalProps{
     setOpen:(open:boolean)=>void;
     name:string;
     joinCode:string
+    workspaceId: string; 
 }
 export const InviteModal=({open,setOpen,name,joinCode}:InviteModalProps)=>{
     const workspaceId=useWorkspaceId();
     const [ConfirmDialog,confirm]=useConfirm("Are you sure","This will deactivate the current invite");
     const {mutate,isPending}=useNewJoinCode();
 
-    const handleCopy=()=>{
-        const inviteLink=`${window.location.origin}/join/${joinCode}`;
-        navigator.clipboard.writeText(inviteLink).then(()=>toast.success("Invite Link copied to clipboard"))
+   const handleCopy = () => {
+  const inviteLink = `${window.location.origin}/join/${workspaceId}`;
+  navigator.clipboard.writeText(inviteLink).then(() => toast.success("Invite Link copied to clipboard"));
+}
 
-    }
 
     const handleNewCode=async()=>{
         const ok=await confirm();
